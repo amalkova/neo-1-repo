@@ -148,9 +148,9 @@ def get_upcoming_birthdays(users):
 #Пройдіться по списку users та аналізуйте дати народження кожного користувача (for user in users:)
 #Припускаємо, що ви отримали список users, де кожен словник містить name (ім'я користувача) та birthday (дата народження у форматі рядка 'рік.місяць.дата')
 users = [
-    {"name": "John Doe", "birthday": "1985.01.23"},
-    {"name": "Jane Smith", "birthday": "1990.01.27"},
-    {"name": "Ann Black", "birthday": "1995.01.20"},
+    {"name": "John Doe", "birthday": "1985.06.15"},
+    {"name": "Jane Smith", "birthday": "1990.06.16"},
+    {"name": "Ann Black", "birthday": "1995.06.21"},
     {"name": "Tom White", "birthday": "2000.01.25"},
     {"name": "Sam Green", "birthday": "1988.01.26"},
     {"name": "Alice Blue", "birthday": "1992.01.28"},
