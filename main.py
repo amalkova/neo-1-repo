@@ -1,69 +1,44 @@
-#Тема 6
 #################################################################################
-#Завдання 1 - total_salary(path) = загальна та середня сума заробітної плати
+#Завдання 1 - caching_fibonacci
 
-from hw04_t01_salary import create_test_salary_file, total_salary
+from hw05_t01_fibonacci import caching_fibonacci
 
 def main():
-    create_test_salary_file()
-    print("Файл salary_file.txt успішно створено.")
+    # Отримуємо функцію fibonacci з кешуванням
+    fib = caching_fibonacci()
 
-    total, average = total_salary("salary_file.txt")
-    print(f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average}")
+    # Демонстрація роботи функції
+    print(f"fib(10) = {fib(10)}")  # 55
+    print(f"fib(15) = {fib(15)}")  # 610
+
+if __name__ == "__main__":
+    main()
+
+
+#################################################################################
+#Завдання 2 - generator_numbers
+
+from hw05_t02_generator import generator_numbers, sum_profit
+
+
+def main():
+    text = (
+        "Загальний дохід працівника складається з декількох частин: "
+        "1000.01 як основний дохід, доповнений додатковими надходженнями "
+        "27.45 і 324.00 доларів."
+    )
+
+    total_income = sum_profit(text, generator_numbers)
+    print(f"Загальний дохід: {total_income:.2f}")
+
 
 if __name__ == "__main__":
     main()
 
 #################################################################################
-#Завдання 2 - get_cats_info(path) = список словників з інформацією про кожного кота
-from hw04_t02_cat import create_test_cats_file, get_cats_info
+# Завдання 3 - bot_advanced
 
-def main():
-    create_test_cats_file()
-
-    cats_info = get_cats_info("cats_file.txt")
-
-    print("\nРезультат виконання get_cats_info:")
-    for cat in cats_info:
-        print(cat)
-
-if __name__ == "__main__":
-    main()
-
-#################################################################################
-#Завдання 3 - структура папок
-
-#Використовуйте модуль sys для отримання шляху до директорії як аргументу командного рядка.
-import sys
-from pathlib import Path
-from colorama import Fore
-from hw04_t03_folder import print_directory_structure, validate_directory_path
-
-#Забезпечте належне форматування виводу, використовуючи функції colorama.
-
-def main():
-    # Якщо немає аргументу — попросити ввести шлях через input()
-    if len(sys.argv) == 2:
-        directory_path = Path(sys.argv[1])
-    else:
-        print(f"{Fore.YELLOW}Не вказано шлях до директорії як аргумент командного рядка.")
-        user_input = input(f"{Fore.CYAN}Введіть повний шлях до директорії: ")
-        directory_path = Path(user_input.strip())
-    try:
-        validate_directory_path(directory_path)
-    except (FileNotFoundError, NotADirectoryError) as e:
-        print(f"{Fore.RED}Помилка: {e}")
-        sys.exit(1)
-
-    print(f"{Fore.YELLOW}📂 Структура директорії: {directory_path}\n")
-    print_directory_structure(directory_path)
-
-if __name__ == "__main__":
-    main()
-
-#################################################################################
-#Завдання 4 - бот-помічник
-from hw04_t04_bot import (
+from hw05_t04_bot_advanced import (
     parse_input,
     add_contact,
     change_contact,
@@ -104,3 +79,16 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# test
+# Enter a command: add
+# Enter the argument for the command
+# Enter a command: add Bob
+# Enter the argument for the command
+# Enter a command: add Jime 0501234356
+# Contact added.
+# Enter a command: phone
+# Enter the argument for the command
+# Enter a command: all
+# Jime: 0501234356 
+# Enter a command:
