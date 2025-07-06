@@ -2,7 +2,7 @@ import unittest
 from io import StringIO
 import sys
 from hw10_bot import AddressBook, Record
-from main import add_contact, change_phone, show_phone, show_all, add_birthday, show_birthday, birthdays
+from hw10 import add_contact, change_phone, show_phone, show_all, add_birthday, show_birthday, birthdays
 
 
 class TestAddressBookBot(unittest.TestCase):
@@ -121,8 +121,8 @@ class TestAddressBookBot(unittest.TestCase):
         try:
             builtins.input = fake_input
             builtins.print = fake_print
-            import main
-            main.main()
+            import hw10
+            hw10.main()
         finally:
             builtins.input = orig_input
             builtins.print = orig_print
